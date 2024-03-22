@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44543052, g: 0.49509048, b: 0.57404035, a: 1}
+  m_IndirectSpecularColor: {r: 0.44543064, g: 0.49509084, b: 0.5740407, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -898,6 +898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PaddleR: {fileID: 2014745544}
   PaddleL: {fileID: 3752432152012523446}
+  HitR: {fileID: 943472623}
+  HitL: {fileID: 1757589843}
   ball: {fileID: 1591037070}
 --- !u!1 &410087039
 GameObject:
