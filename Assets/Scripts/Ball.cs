@@ -12,9 +12,26 @@ public class Ball : MonoBehaviour
         RgB = GetComponent<Rigidbody>();
     }
 
+    public void Restart()
+    {
+        transform.position = GameObject.FindGameObjectWithTag("BallSpawner").transform.position;
+        RgB.velocity = Vector3.zero;
+    }
+
     // Update is called once per frame
     public void Launch()
     {
         RgB.AddForce(Vector3.forward * launchForce, ForceMode.Impulse);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("BallDespawner"))
+        {
+            transform.position = GameObject.FindGameObjectWithTag("BallSpawner").transform.position;
+            RgB.velocity = Vector3.zero;
+        }
+    }
+
+
 }
