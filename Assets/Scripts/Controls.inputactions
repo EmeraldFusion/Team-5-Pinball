@@ -65,8 +65,30 @@
                 },
                 {
                     "name": "",
+                    "id": "ed7b5e1a-bd2b-4708-9217-c70879a89809",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FlipL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b18cad32-e9d9-4a87-ba61-993ea131fb6d",
                     "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FlipR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "51e4bb4e-3d75-459e-9334-855cf01aeb97",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -98,6 +120,17 @@
                 },
                 {
                     "name": "",
+                    "id": "037cf34c-ff24-4f4f-843d-4a08f08cd72f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LaunchB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1dedaacb-03ed-4894-9ce3-eb7548dd0355",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
@@ -109,8 +142,30 @@
                 },
                 {
                     "name": "",
+                    "id": "818974ec-3b70-42ad-b66e-4df5bfa4ef41",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtraR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "bd36af16-2047-4417-acdc-b2f8ecb6d4f2",
                     "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtraL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a031c9b3-fb5a-478e-98c6-458629200540",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
