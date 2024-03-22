@@ -31,6 +31,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ExtraR",
+                    "type": "Button",
+                    "id": "efd06694-ca9e-42b3-b1c9-744389bf41a7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ExtraL",
+                    "type": "Button",
+                    "id": "d2e0e585-128f-4e79-b979-ba909e6955a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -75,6 +93,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "LaunchB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1dedaacb-03ed-4894-9ce3-eb7548dd0355",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtraR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd36af16-2047-4417-acdc-b2f8ecb6d4f2",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExtraL",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

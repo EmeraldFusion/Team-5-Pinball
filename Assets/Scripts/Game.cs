@@ -7,6 +7,8 @@ public class Game : MonoBehaviour
     [HideInInspector] public Controls input;
     public Flipper PaddleR;
     public Flipper PaddleL;
+    public Flipper HitR;
+    public Flipper HitL;
     public Ball ball;
     // Start is called before the first frame update
     public static Game Instance { get; private set; }
@@ -28,6 +30,14 @@ public class Game : MonoBehaviour
         else if (input.Default.FlipL.WasPressedThisFrame())
         {
             PaddleL.Flip();
+        }
+        else if (input.Default.ExtraR.WasPressedThisFrame())
+        {
+            HitR.Flip();
+        }
+        else if (input.Default.ExtraL.WasPressedThisFrame())
+        {
+            HitL.Flip();
         }
         else if (input.Default.LaunchB.WasPressedThisFrame())
         {
