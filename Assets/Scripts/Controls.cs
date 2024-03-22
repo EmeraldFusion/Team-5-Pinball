@@ -53,6 +53,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExtraR"",
+                    ""type"": ""Button"",
+                    ""id"": ""efd06694-ca9e-42b3-b1c9-744389bf41a7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExtraL"",
+                    ""type"": ""Button"",
+                    ""id"": ""d2e0e585-128f-4e79-b979-ba909e6955a4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -69,8 +87,30 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ed7b5e1a-bd2b-4708-9217-c70879a89809"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FlipL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b18cad32-e9d9-4a87-ba61-993ea131fb6d"",
                     ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FlipR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51e4bb4e-3d75-459e-9334-855cf01aeb97"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -99,6 +139,61 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""LaunchB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""037cf34c-ff24-4f4f-843d-4a08f08cd72f"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LaunchB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1dedaacb-03ed-4894-9ce3-eb7548dd0355"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExtraR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""818974ec-3b70-42ad-b66e-4df5bfa4ef41"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExtraR"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd36af16-2047-4417-acdc-b2f8ecb6d4f2"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExtraL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a031c9b3-fb5a-478e-98c6-458629200540"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExtraL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -110,6 +205,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Default_FlipL = m_Default.FindAction("FlipL", throwIfNotFound: true);
         m_Default_FlipR = m_Default.FindAction("FlipR", throwIfNotFound: true);
         m_Default_LaunchB = m_Default.FindAction("LaunchB", throwIfNotFound: true);
+        m_Default_ExtraR = m_Default.FindAction("ExtraR", throwIfNotFound: true);
+        m_Default_ExtraL = m_Default.FindAction("ExtraL", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -174,6 +271,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_FlipL;
     private readonly InputAction m_Default_FlipR;
     private readonly InputAction m_Default_LaunchB;
+    private readonly InputAction m_Default_ExtraR;
+    private readonly InputAction m_Default_ExtraL;
     public struct DefaultActions
     {
         private @Controls m_Wrapper;
@@ -181,6 +280,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @FlipL => m_Wrapper.m_Default_FlipL;
         public InputAction @FlipR => m_Wrapper.m_Default_FlipR;
         public InputAction @LaunchB => m_Wrapper.m_Default_LaunchB;
+        public InputAction @ExtraR => m_Wrapper.m_Default_ExtraR;
+        public InputAction @ExtraL => m_Wrapper.m_Default_ExtraL;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -199,6 +300,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @LaunchB.started += instance.OnLaunchB;
             @LaunchB.performed += instance.OnLaunchB;
             @LaunchB.canceled += instance.OnLaunchB;
+            @ExtraR.started += instance.OnExtraR;
+            @ExtraR.performed += instance.OnExtraR;
+            @ExtraR.canceled += instance.OnExtraR;
+            @ExtraL.started += instance.OnExtraL;
+            @ExtraL.performed += instance.OnExtraL;
+            @ExtraL.canceled += instance.OnExtraL;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
@@ -212,6 +319,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @LaunchB.started -= instance.OnLaunchB;
             @LaunchB.performed -= instance.OnLaunchB;
             @LaunchB.canceled -= instance.OnLaunchB;
+            @ExtraR.started -= instance.OnExtraR;
+            @ExtraR.performed -= instance.OnExtraR;
+            @ExtraR.canceled -= instance.OnExtraR;
+            @ExtraL.started -= instance.OnExtraL;
+            @ExtraL.performed -= instance.OnExtraL;
+            @ExtraL.canceled -= instance.OnExtraL;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -234,5 +347,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnFlipL(InputAction.CallbackContext context);
         void OnFlipR(InputAction.CallbackContext context);
         void OnLaunchB(InputAction.CallbackContext context);
+        void OnExtraR(InputAction.CallbackContext context);
+        void OnExtraL(InputAction.CallbackContext context);
     }
 }
