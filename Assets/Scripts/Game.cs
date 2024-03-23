@@ -39,9 +39,9 @@ public class Game : MonoBehaviour
         {
             HitL.Flip();
         }
-        else if (input.Default.LaunchB.WasPressedThisFrame())
+        else if (Input.GetKey(KeyCode.Escape))
         {
-            ball.Launch();
+            ball.RestartGame();
         }
     }
 }

@@ -4,34 +4,77 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private Rigidbody RgB;
+    // set in inspector
     public float launchForce;
-    // Start is called before the first frame update
+
+
+    // private fields
+    private Rigidbody RgB;
+    private AudioSource spawnSound;
+    private bool canBeLaunched;
+
+
     void Start()
     {
         RgB = GetComponent<Rigidbody>();
+        spawnSound = GetComponent<AudioSource>();
+        canBeLaunched = true;
     }
 
-    public void Restart()
+    private void Update()
     {
-        transform.position = GameObject.FindGameObjectWithTag("BallSpawner").transform.position;
-        RgB.velocity = Vector3.zero;
+        var input = Game.Instance.input;
+        if (canBeLaunched && input.Default.LaunchB.WasReleasedThisFrame())
+        {
+            LaunchBall();
+            canBeLaunched = false;
+        }
     }
 
-    // Update is called once per frame
-    public void Launch()
-    {
-        RgB.AddForce(Vector3.forward * launchForce, ForceMode.Impulse);
-    }
-
+    // Deals with triggers
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("BallDespawner"))
         {
-            transform.position = GameObject.FindGameObjectWithTag("BallSpawner").transform.position;
-            RgB.velocity = Vector3.zero;
+            SpawnBall();
         }
     }
+
+    // Deals with collisions
+    private void OnCollisionEnter(Collision collision)
+    {
+        var bumper = collision.gameObject.GetComponent<Bumper>();
+        if (bumper != null)
+        {
+            bumper.Bump();
+        }
+    }
+    
+    // Lauches ball
+    public void LaunchBall()
+    {
+        launchForce = Random.Range(launchForce * 0.8f, launchForce * 1.2f);
+        RgB.AddForce(Vector3.forward * launchForce, ForceMode.Impulse);
+        canBeLaunched = false;
+    }
+
+    // Spawns the ball in it's dedicated space and plays sound
+    public void SpawnBall()
+    {
+        transform.position = GameObject.FindGameObjectWithTag("BallSpawner").transform.position;
+        RgB.velocity = Vector3.zero;
+        spawnSound.Play();
+        canBeLaunched = true;
+    }
+
+    public void RestartGame()
+    {
+        transform.position = GameObject.FindGameObjectWithTag("BallSpawner").transform.position;
+        RgB.velocity = Vector3.zero;
+        canBeLaunched = true;
+    }
+
+
 
 
 }
