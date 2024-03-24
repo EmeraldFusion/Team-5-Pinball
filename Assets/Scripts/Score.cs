@@ -18,11 +18,6 @@ public class Score : MonoBehaviour
         
     }
 
-    public void addToScore()
-    {
-        bumperPoints += 50;
-        Debug.Log("Hello");
-    }
 
     public void HighScore()
     {

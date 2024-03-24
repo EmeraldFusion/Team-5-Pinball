@@ -19,6 +19,6 @@ public class Bumper : MonoBehaviour
     public void Bump()
     {
         bumpSound.Play();
-        Game.Instance.AddScore(50);
+        ScoreManager.instance.AddPoint();
     }
 }
