@@ -563,7 +563,20 @@ PlayerSettings:
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: TMP_PRESENT
+    EmbeddedLinux: TMP_PRESENT
+    GameCoreXboxOne: TMP_PRESENT
+    Nintendo Switch: TMP_PRESENT
+    PS4: TMP_PRESENT
+    PS5: TMP_PRESENT
+    QNX: TMP_PRESENT
+    Stadia: TMP_PRESENT
+    Standalone: TMP_PRESENT
+    VisionOS: TMP_PRESENT
+    WebGL: TMP_PRESENT
+    XboxOne: TMP_PRESENT
+    tvOS: TMP_PRESENT
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
