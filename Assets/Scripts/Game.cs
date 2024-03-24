@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    [HideInInspector] public Controls input;
+    // set in inspector
     public Flipper PaddleR;
     public Flipper PaddleL;
     public Ball ball;
-    // Start is called before the first frame update
+
+    // other fields
+    [HideInInspector] public Controls input;
+
     public static Game Instance { get; private set; }
 
+    // scores
+    public int CurScore { get; private set; }
+    public int HighScore { get; private set; }
+
+    // Life Cycle methods
     void Awake()
     {
         input = new Controls();
@@ -31,7 +39,29 @@ public class Game : MonoBehaviour
         }
         else if (input.Default.LaunchB.WasPressedThisFrame())
         {
+<<<<<<< Updated upstream
             ball.Launch();
+=======
+            HitR.Flip();
+        }
+        else if (input.Default.ExtraL.WasPressedThisFrame())
+        {
+            HitL.Flip();
+        }
+        else if (input.Default.Restart.WasPressedThisFrame())
+        {
+            ball.SpawnBall();
+        }
+    }
+
+    // adds score and sets high score
+    public void AddScore(int amount)
+    {
+        CurScore += amount;
+        if (CurScore > HighScore)
+        {
+            HighScore = CurScore;
+>>>>>>> Stashed changes
         }
     }
 }
