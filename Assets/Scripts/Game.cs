@@ -13,11 +13,35 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     public static Game Instance { get; private set; }
 
+    public int curScore { get; private set; }
+    public int highScore { get; private set; }
+
     void Awake()
     {
         input = new Controls();
         input.Enable();
         Instance = this;
+    }
+
+    private void Start()
+    {
+        //Gets high score when the game starts
+        highScore = PlayerPrefs.GetInt(Consts.PlayerPrefs.HIGHSCORE, 0);
+    }
+
+    private void OnDisable()
+    {
+        //While game is off save the score for future uses
+        PlayerPrefs.SetInt(Consts.PlayerPrefs.HIGHSCORE, highScore);
+    }
+    public void AddScore(int amount)
+    {
+        curScore += amount;
+        if (curScore > highScore)
+        {
+            Debug.Log(curScore);
+            highScore = curScore;
+        }
     }
 
     // Update is called once per frame

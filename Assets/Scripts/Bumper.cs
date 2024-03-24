@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class Bumper : MonoBehaviour
 {
+    
 
     //private fields
     private AudioSource bumpSound;
 
+
     private void Start()
     {
+        
         bumpSound = GetComponent<AudioSource>();
     }
 
     public void Bump()
     {
         bumpSound.Play();
+        Game.Instance.AddScore(50);
     }
 }
