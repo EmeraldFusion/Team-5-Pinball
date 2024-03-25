@@ -66,9 +66,9 @@ public class Game : MonoBehaviour
         {
             HitL.Flip();
         }
-        else if (Input.GetKey(KeyCode.Escape))
+        else if (input.Default.Restart.WasPressedThisFrame())
         {
-            ball.RestartGame();
+            ball.SpawnBall();
         }
     }
 }

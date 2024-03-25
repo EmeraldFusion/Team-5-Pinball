@@ -1,5 +1,7 @@
+using ModularOptions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
@@ -12,6 +14,7 @@ public class Ball : MonoBehaviour
     private Rigidbody RgB;
     private AudioSource spawnSound;
     private bool canBeLaunched;
+    private bool isDoorOpen;
 
 
     void Start()
@@ -19,6 +22,7 @@ public class Ball : MonoBehaviour
         RgB = GetComponent<Rigidbody>();
         spawnSound = GetComponent<AudioSource>();
         canBeLaunched = true;
+        isDoorOpen = false;
     }
 
     private void Update()
@@ -27,7 +31,6 @@ public class Ball : MonoBehaviour
         if (canBeLaunched && input.Default.LaunchB.WasReleasedThisFrame())
         {
             LaunchBall();
-            canBeLaunched = false;
         }
     }
 
@@ -37,6 +40,25 @@ public class Ball : MonoBehaviour
         if (other.CompareTag("BallDespawner"))
         {
             SpawnBall();
+            isDoorOpen = true;
+        }
+        // when ball passes throw the trigger, open the door
+        else if (other.CompareTag("Door"))
+        {
+            other.GetComponent<MeshRenderer>().enabled = false;
+            other.GetComponent<MeshCollider>().enabled = false;
+            isDoorOpen = true;
+        }
+    }
+
+    // When it exits a trigger, close the door
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Door"))
+        {
+            other.GetComponent<MeshRenderer>().enabled = true;
+            other.GetComponent<MeshCollider>().enabled = true;
+            isDoorOpen = false;
         }
     }
 
@@ -66,15 +88,6 @@ public class Ball : MonoBehaviour
         spawnSound.Play();
         canBeLaunched = true;
     }
-
-    public void RestartGame()
-    {
-        transform.position = GameObject.FindGameObjectWithTag("BallSpawner").transform.position;
-        RgB.velocity = Vector3.zero;
-        canBeLaunched = true;
-    }
-
-
 
 
 }
