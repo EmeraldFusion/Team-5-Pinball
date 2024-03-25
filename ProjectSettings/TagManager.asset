@@ -7,6 +7,7 @@ TagManager:
   - BallDespawner
   - BallSpawner
   - Ball
+  - Door
   layers:
   - Default
   - TransparentFX

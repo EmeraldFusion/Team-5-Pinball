@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour
     private Rigidbody RgB;
     private AudioSource spawnSound;
     private bool canBeLaunched;
+    private bool canRestart;
 
 
     void Start()
@@ -27,7 +28,6 @@ public class Ball : MonoBehaviour
         if (canBeLaunched && input.Default.LaunchB.WasReleasedThisFrame())
         {
             LaunchBall();
-            canBeLaunched = false;
         }
     }
 
@@ -37,6 +37,11 @@ public class Ball : MonoBehaviour
         if (other.CompareTag("BallDespawner"))
         {
             SpawnBall();
+        }
+        else if (other.CompareTag("Door"))
+        {
+            other.GetComponent<MeshRenderer>().enabled = true;
+            other.GetComponent<MeshCollider>().enabled = true;
         }
     }
 
@@ -66,15 +71,4 @@ public class Ball : MonoBehaviour
         spawnSound.Play();
         canBeLaunched = true;
     }
-
-    public void RestartGame()
-    {
-        transform.position = GameObject.FindGameObjectWithTag("BallSpawner").transform.position;
-        RgB.velocity = Vector3.zero;
-        canBeLaunched = true;
-    }
-
-
-
-
 }

@@ -71,6 +71,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""99500ab0-cd20-4c5f-bc31-f9a9877e5b61"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -194,6 +203,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""ExtraL"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b44cc92-e6cc-4ad3-b842-0899cfcb2e23"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -207,6 +227,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Default_LaunchB = m_Default.FindAction("LaunchB", throwIfNotFound: true);
         m_Default_ExtraR = m_Default.FindAction("ExtraR", throwIfNotFound: true);
         m_Default_ExtraL = m_Default.FindAction("ExtraL", throwIfNotFound: true);
+        m_Default_Restart = m_Default.FindAction("Restart", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,6 +294,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_LaunchB;
     private readonly InputAction m_Default_ExtraR;
     private readonly InputAction m_Default_ExtraL;
+    private readonly InputAction m_Default_Restart;
     public struct DefaultActions
     {
         private @Controls m_Wrapper;
@@ -282,6 +304,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @LaunchB => m_Wrapper.m_Default_LaunchB;
         public InputAction @ExtraR => m_Wrapper.m_Default_ExtraR;
         public InputAction @ExtraL => m_Wrapper.m_Default_ExtraL;
+        public InputAction @Restart => m_Wrapper.m_Default_Restart;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -306,6 +329,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ExtraL.started += instance.OnExtraL;
             @ExtraL.performed += instance.OnExtraL;
             @ExtraL.canceled += instance.OnExtraL;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
@@ -325,6 +351,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @ExtraL.started -= instance.OnExtraL;
             @ExtraL.performed -= instance.OnExtraL;
             @ExtraL.canceled -= instance.OnExtraL;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -349,5 +378,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnLaunchB(InputAction.CallbackContext context);
         void OnExtraR(InputAction.CallbackContext context);
         void OnExtraL(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
 }
