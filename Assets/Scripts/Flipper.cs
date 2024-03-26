@@ -15,6 +15,6 @@ public class Flipper : MonoBehaviour
     // Update is called once per frame
     public void Flip()
     {
-        RgB.AddRelativeForce(Vector3.forward * push, ForceMode.Impulse);
+        RgB.AddForce(Vector3.forward * push, ForceMode.Impulse);
     }
 }

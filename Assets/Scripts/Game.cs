@@ -52,19 +52,35 @@ public class Game : MonoBehaviour
         
         if (input.Default.FlipR.WasPressedThisFrame())
         {
-            PaddleR.Flip();
+            if (PaddleR != null)
+            {
+                Debug.Log("it flips");
+                PaddleR.Flip();
+            }
         }
         else if (input.Default.FlipL.WasPressedThisFrame())
         {
-            PaddleL.Flip();
+            if (PaddleL != null)
+            {
+                Debug.Log("it flips");
+                PaddleL.Flip();
+            }
         }
         else if (input.Default.ExtraR.WasPressedThisFrame())
         {
-            HitR.Flip();
+            if (HitR != null)
+            {
+                Debug.Log("it flips");
+                HitR.Flip(); ;
+            }
         }
         else if (input.Default.ExtraL.WasPressedThisFrame())
         {
-            HitL.Flip();
+            if (HitL != null)
+            {
+                Debug.Log("it flips");
+                HitL.Flip(); ;
+            }
         }
         else if (input.Default.Restart.WasPressedThisFrame())
         {

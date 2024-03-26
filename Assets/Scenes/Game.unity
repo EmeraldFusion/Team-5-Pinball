@@ -4983,7 +4983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ece37e29da18394280caeefc3008870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForce: 24
+  launchForce: 30
 --- !u!82 &1591037071
 AudioSource:
   m_ObjectHideFlags: 0
