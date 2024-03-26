@@ -40,13 +40,15 @@ public class Ball : MonoBehaviour
         if (other.CompareTag("BallDespawner"))
         {
             SpawnBall();
+            GameObject.FindWithTag("TheWall").GetComponent<MeshRenderer>().enabled = false;
+            GameObject.FindWithTag("TheWall").GetComponent<MeshCollider>().enabled = false;
             isDoorOpen = true;
         }
         // when ball passes throw the trigger, open the door
-        else if (other.CompareTag("Door"))
+        else if (other.CompareTag("BallSpawner"))
         {
-            other.GetComponent<MeshRenderer>().enabled = false;
-            other.GetComponent<MeshCollider>().enabled = false;
+            GameObject.FindWithTag("TheWall").GetComponent<MeshRenderer>().enabled = false;
+            GameObject.FindWithTag("TheWall").GetComponent<MeshCollider>().enabled = false;
             isDoorOpen = true;
         }
     }
@@ -54,10 +56,10 @@ public class Ball : MonoBehaviour
     // When it exits a trigger, close the door
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Door"))
+        if (other.CompareTag("WallTrigger"))
         {
-            other.GetComponent<MeshRenderer>().enabled = true;
-            other.GetComponent<MeshCollider>().enabled = true;
+            GameObject.FindWithTag("TheWall").GetComponent<MeshRenderer>().enabled = true;
+            GameObject.FindWithTag("TheWall").GetComponent<MeshCollider>().enabled = true;
             isDoorOpen = false;
         }
     }
